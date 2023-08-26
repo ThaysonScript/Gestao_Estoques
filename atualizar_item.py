@@ -1,7 +1,10 @@
-with open('dados.txt', 'r') as dados, open('dados.csv', 'w') as arquivo_csv:
-    linhas_atualizadas = []
+with open('dados.txt', 'r') as dados:
+    linhas = dados.readlines()
+    print(f'Items disponiveis: \n{linhas}')
+    
     item_atualizar = input('Digite o nome do item a ser atualizado: ')
-    for linha in dados:
+    linhas_atualizadas = []
+    for linha in linhas:
         fabricante, modelo, serial = linha.strip().split(",")
         
         if item_atualizar == fabricante:
@@ -15,4 +18,7 @@ with open('dados.txt', 'r') as dados, open('dados.csv', 'w') as arquivo_csv:
             
         linhas_atualizadas.append(f'{fabricante},{modelo},{serial}\n')
         
+with open('dados.txt', 'w') as dados, open('dados.csv', 'w') as arquivo_csv:
+    dados.writelines(linhas_atualizadas)
     arquivo_csv.writelines(linhas_atualizadas)
+    

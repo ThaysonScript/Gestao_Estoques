@@ -4,9 +4,6 @@ linhas_atualizadas = []
 with open("dados.txt", "r") as dados:
 
     for linha in dados:
-        print(linha)
-        input()
-        
         fabricante, modelo, serial = linha.strip().split(",")
         
         if fabricante != deletar_item:

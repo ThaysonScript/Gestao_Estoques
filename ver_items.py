@@ -12,21 +12,3 @@ with open('dados.txt', 'r') as dados:
             
         elif escolha == serial:
             print(f'O codigo serial do seu item é: {serial}')
-            
-            
-            
-def ler_dados_txt():
-    with open("dados.txt", "r") as arquivo:
-        linhas = arquivo.readlines()
-    return [linha.strip() for linha in linhas]
-
-
-
-def escrever_dados_csv(dados):
-    with open("dados.csv", "w") as arquivo:
-        for linha in dados:
-            arquivo.write(linha + '\n')
-            
-            
-            
-escrever_dados_csv(ler_dados_txt())

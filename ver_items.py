@@ -64,7 +64,7 @@ def visualizar_por_nome(dados_totais):
     
 # tela para mostrar que o usuario deve escolher alguma das propriedades disponiveis
 def visualizar_por_propriedade():
-    dados_items = dados_items()
+    dados_cadastrados = dados_items()
     print("\n'''''' MENU DE VISUALIZAR PROPRIEDADES DE UM ITEM CADASTRADO ''''''''''")
     print("[1].VISUALIZAR POR MODELO")
     print("[2].VISUALIZAR POR SERIAL/CODIGO DO ITEM CADASTRADO")
@@ -73,11 +73,11 @@ def visualizar_por_propriedade():
 
     # buscar por modelo e retornar fabricante ou serial do item ja cadastrado
     if buscar_item_por_propriedade == '1':
-        buscar_por_modelo(dados_totais = dados_items)
+        buscar_por_modelo(dados_totais = dados_cadastrados)
                 
     # buscar por serial/codigo do item ja cadastrado e retornar fabricante ou modelo          
     elif buscar_item_por_propriedade == '2':
-        buscar_por_serial(dados_totais = dados_items)
+        buscar_por_serial(dados_totais = dados_cadastrados)
         
     
 def buscar_por_modelo(dados_totais):

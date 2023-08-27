@@ -27,7 +27,7 @@ def escolhas_usuario():
             ver_items.visualizar_item()
             
         elif escolha == '3':
-            atualizar_item.atualizar_item()
+            atualizar_item.atualizar_dados()
             
         elif escolha == '4':
             deletar_item.deletar_item()

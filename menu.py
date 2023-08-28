@@ -3,6 +3,7 @@ import cadastrar_item
 import ver_items
 import atualizar_item
 import deletar_item
+import persistencia_arquivo_csv
 
 # 2.1. Menu inicial para o usuário selecionar a opção de interesse 
 def menu_usuario():
@@ -12,7 +13,8 @@ def menu_usuario():
         print("[2].BUSCAR ITEM")
         print("[3].EDITAR ITENS CADASTRADOS")
         print("[4].REMOVER ITEM CADASTRADO")
-        print("[5].SAIR\n")
+        print("[5].PERSISTIR DADOS EM ARQUIVO.CSV")
+        print("[6].SAIR\n")
         print("''''''''''''''''''''''''''''''''''''")
     
         # selecionar a opção de interesse
@@ -31,6 +33,9 @@ def menu_usuario():
             deletar_item.deletar_item()
             
         elif escolha == '5':
+            persistencia_arquivo_csv.persistir_dados_arquivo_csv()
+        
+        elif escolha == '6':
             print("\n******** SAINDO DO PROGRAMA *********\n")
             break
         

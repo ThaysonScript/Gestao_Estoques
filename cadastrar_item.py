@@ -1,11 +1,6 @@
-# tela para mostrar que entrou no menu de cadastro de items
-def menu_cadastrar_item():
-    print("\n'''''' MENU DE CADASTRO DE ITEMS ''''''''''")
-
-
 # 2.2. Opção para cadastrar itens (com ao menos 3 propriedades)
 def cadastrar_item():
-    menu_cadastrar_item()
+    print("\n'''''' MENU DE CADASTRO DE ITEMS ''''''''''")
     
     # adicionar alteracoes tanto em txt como csv
     with open('dados.txt', 'a') as dados_txt, open('dados.csv', 'a') as dados_csv:
@@ -20,4 +15,4 @@ def cadastrar_item():
         dados_csv.write(f'{fabricante_item},{modelo_item},{serial_item}\n')
         
     # sucesso ao cadastrar item
-    print("\n'''''' ITEM CADASTRADO COM SUCESSO ''''''''''\n")
+    print("\n*********** ITEM CADASTRADO COM SUCESSO ***********")

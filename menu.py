@@ -4,20 +4,18 @@ import ver_items
 import atualizar_item
 import deletar_item
 
-# 2.1. Menu inicial para o usuário selecionar a opção de interesse
+# 2.1. Menu inicial para o usuário selecionar a opção de interesse 
 def menu_usuario():
-    print("\n'''''' ESCOLHA UMA OPÇÃO ''''''''''")
-    print("[1].CADASTRAR ITEM")
-    print("[2].BUSCAR ITEM")
-    print("[3].EDITAR ITENS CADASTRADOS")
-    print("[4].REMOVER ITEM CADASTRADO")
-    print("[5].SAIR")
-    
-    
-# selecionar a opção de interesse
-def escolhas_usuario():
     while True:
-        menu_usuario()
+        print("\n'''''' ESCOLHA UMA OPÇÃO ''''''''''\n")
+        print("[1].CADASTRAR ITEM")
+        print("[2].BUSCAR ITEM")
+        print("[3].EDITAR ITENS CADASTRADOS")
+        print("[4].REMOVER ITEM CADASTRADO")
+        print("[5].SAIR\n")
+        print("''''''''''''''''''''''''''''''''''''")
+    
+        # selecionar a opção de interesse
         escolha = input('Digite uma opção de escolha acima: ')
     
         if escolha == '1':
@@ -33,7 +31,7 @@ def escolhas_usuario():
             deletar_item.deletar_item()
             
         elif escolha == '5':
-            print("\n'''''' SAINDO DO PROGRAMA ''''''''''\n")
+            print("\n******** SAINDO DO PROGRAMA *********\n")
             break
         
         else:
@@ -41,4 +39,4 @@ def escolhas_usuario():
             
             
 if __name__ == '__main__':
-    escolhas_usuario()
+    menu_usuario()

@@ -1,34 +1,34 @@
 def dados_armazenados():
     with open('dados.txt', 'r') as dados:
         linhas = dados.readlines()
-        print(f'Items disponiveis: \n{linhas}')
-        
     return linhas
 
+def novos_dados(nova_fabricante: str) -> str:
+    nova_fabricante = input('Digite a nova fabricante: ').strip()
+    novo_modelo = input('Digite o novo modelo: ').strip()
+    novo_serial = input('Digite o novo serial: ').strip()
+    
+    return f'{nova_fabricante},{novo_modelo},{novo_serial}\n'
 
 def atualizar_dados():
     dados_cadastrados = dados_armazenados()
+    print(f'Items disponiveis: \n{dados_cadastrados}')
     
     item_atualizar = input('Digite o nome do item a ser atualizado: ')
     linhas_atualizadas = []
     for linha in dados_cadastrados:
-        fabricante, modelo, serial = linha.strip().split(",")
+        fabricante, modelo, serial = linha.strip().split(',')
         
         if item_atualizar == fabricante:
-            nova_fabricante = input('Digite a nova fabricante: ')
-            novo_modelo = input('Digite o novo modelo: ')
-            novo_serial = input('Digite o novo serial: ')
+            novos_items = novos_dados(fabricante)
+            linhas_atualizadas.append(novos_items)
             
-            fabricante = nova_fabricante
-            modelo = novo_modelo
-            serial = novo_serial
-            
-        linhas_atualizadas.append(f'{fabricante},{modelo},{serial}\n')
+        else:
+            linhas_atualizadas.append(f'{fabricante},{modelo},{serial}\n')
         
-    return linhas_atualizadas
-        
-     
-        
-with open('dados.txt', 'w') as dados:
-    dados_atualizados = atualizar_dados()
-    dados.writelines(dados_atualizados)
+    salvar_dados(linhas_atualizadas)
+    
+    
+def salvar_dados(dados_atualizados):
+    with open('dados.txt', 'w') as dados:
+        dados.writelines(dados_atualizados)

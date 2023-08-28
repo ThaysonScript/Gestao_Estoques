@@ -10,11 +10,11 @@ def deletar_item():
                 
     print(f"Registro com o nome '{deletar_item}' foi excluído.")
                 
-    return linhas_atualizadas
+    registrar_delete(linhas_atualizadas)
 
 
-def registrar_delete():
-    dados_armazenados = deletar_item()
+def registrar_delete(dados_armazenados):
 
     with open("dados.txt", "w") as arquivo_txt:
-        arquivo_txt.writelines(dados_armazenados)
+        for dado in dados_armazenados:
+            arquivo_txt.writelines(dado)

@@ -2,7 +2,6 @@ def verificar_arquivo_csv_existe(arquivo_csv):
     return open(arquivo_csv, 'r')
 
 
-
 def ler_arquivo_txt():
     linhas = []
     with open('dados.txt', 'r') as arquivo_txt:

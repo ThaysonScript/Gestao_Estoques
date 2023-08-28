@@ -98,12 +98,10 @@ def buscar_por_modelo(dados_totais):
                 if deseja_ver_oque == 'fabricante':
                     if digitar_modelo == modelo:
                         print(f'A fabricante do seu item com modelo = {digitar_modelo} é = {fabricante}')
-                    print('O modelo informado está inválido!')
                     
                 elif deseja_ver_oque == 'serial':
                     if digitar_modelo == modelo:
                         print(f'O serial/codigo do seu item com modelo = {digitar_modelo} é = {serial}')
-                    print('O modelo informado está inválido!')
                     
             break
             
@@ -122,11 +120,9 @@ def buscar_por_serial(dados_totais):
                 if deseja_ver_oque == 'fabricante':
                     if digitar_serial == serial:
                         print(f'A fabricante do seu item com serial = {digitar_serial} é = {fabricante}')
-                    print('O serial/codigo informado está inválido!')
                     
                 elif deseja_ver_oque == 'modelo':
                     if digitar_serial == serial:
                         print(f'O modelo do seu item com serial = {digitar_serial} é = {modelo}')
-                    print('O serial/codigo informado está inválido!')
                     
             break

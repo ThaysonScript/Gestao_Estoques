@@ -1,4 +1,4 @@
-# Importar modulos do codigo
+# ---------------- IMPORTAR PARTES DA APLICACAO
 import cadastrar_item
 import ver_items
 import atualizar_item

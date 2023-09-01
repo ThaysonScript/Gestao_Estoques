@@ -1,5 +1,5 @@
 def dados_armazenados():
-    with open('dados.txt', 'r') as dados:
+    with open('dados.csv', 'r') as dados:
         linhas = dados.readlines()
     return linhas
 
@@ -30,5 +30,5 @@ def atualizar_dados():
     
     
 def salvar_dados(dados_atualizados):
-    with open('dados.txt', 'w') as dados:
+    with open('dados.csv', 'w') as dados:
         dados.writelines(dados_atualizados)

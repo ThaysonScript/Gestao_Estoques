@@ -1,7 +1,7 @@
 def deletar_item():
     deletar_item = input("Digite o nome do item que deseja excluir: ")
     linhas_atualizadas = []
-    with open("dados.txt", "r") as dados:
+    with open("dados.csv", "r") as dados:
         for linha in dados:
             fabricante, modelo, serial = linha.strip().split(",")
             
@@ -15,6 +15,6 @@ def deletar_item():
 
 def registrar_delete(dados_armazenados):
 
-    with open("dados.txt", "w") as arquivo_txt:
+    with open("dados.csv", "w") as arquivo_csv:
         for dado in dados_armazenados:
-            arquivo_txt.writelines(dado)
+            arquivo_csv.writelines(dado)

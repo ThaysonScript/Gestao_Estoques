@@ -135,7 +135,7 @@ def tipo_busca_propriedade(dados_totais, tipo):
         
     elif tipo in ['fabricante', 'modelo', 'codigo']:
         tipo_acesso = input(f'Digite o tipo de acesso que deseja ver a partir da {tipo} do item ({menu_disponivel}): ')
-        tipo_dado_armazenado = input(f'\nDigite a {tipo} do item: ').strip().lower()
+        tipo_dado_armazenado = input(f'\nDigite o {tipo} do item: ').strip()
         
         for fabricante, modelo, codigo in dados_totais:
             if tipo == 'fabricante' and tipo_dado_armazenado == fabricante:

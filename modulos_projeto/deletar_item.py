@@ -12,10 +12,10 @@ def deletar_item():
     
     with open("dados.csv", "r") as dados:
         for linha in dados:
-            fabricante, modelo, serial = linha.strip().split(",")
+            fabricante, modelo, codigo = linha.strip().split(",")
             
             if fabricante != deletar_item:
-                linhas_atualizadas.append(f'{fabricante},{modelo},{serial}\n')
+                linhas_atualizadas.append(f'{fabricante},{modelo}, {codigo}\n')
                 
     print(f"Registro com o nome '{deletar_item}' foi excluído.")  
            

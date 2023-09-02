@@ -1,3 +1,5 @@
+import limpar_terminal
+
 # CARREGAR DADOS CADASTRADOS
 def carregar_dados():
     dados_totais = []
@@ -32,20 +34,22 @@ def menu_disponivel_busca_por_propriedades(tipo):
     
     if tipo == 'fabricante':
         print("MODELO OU CÓDIGO")
+        print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
         return 'modelo ou codigo'
         
     elif tipo == 'modelo':
         print("FABRICANTE OU CÓDIGO")
+        print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
         return 'fabricante ou codigo'
         
     elif tipo == 'codigo':
         print("FABRICANTE OU MODELO")
+        print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
         return 'fabricante ou modelo'
         
     elif tipo == 'sair':
         print("[4].SAIR DO MENU DE TIPOS DE BUSCAS POR PROPRIEDADES DISPONIVEIS")
         
-    print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
     
 
 # MOSTRAR MENSAGEM DO FABRICANTE, CASO ENCONTRADO NO ESTOQUE
@@ -54,7 +58,7 @@ def resultado_busca_por_nome(fabricante):
     print(f'O item com nome de fabricante = {fabricante} se encontra cadastrada no sistema!')
     print("\n'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
     
-    print('\nDeseja ver as propriedades desse item? ')  # VER PROPRIEDADES DA FABRICANTE CONSULTADA
+    print('Deseja ver as propriedades desse item? ')  # VER PROPRIEDADES DA FABRICANTE CONSULTADA
     
     
 # RETORNAR TODAS AS PROPRIEDADES CASO USUARIO DIGITAR S PARA VER PROPRIEDADES DAQUELA FABRICANTE CONSULTADA
@@ -69,16 +73,20 @@ def resultado_busca_propriedades_fabricante(fabricante, modelo, codigo):
 def ver_items():
     dados_armazenados = carregar_dados()
     while True:
+        limpar_terminal.limpar_terminal()
         menu_ver_items()
         escolha = int(input('Digite alguma das opções acima: '))
     
         if escolha == 1:
+            limpar_terminal.limpar_terminal()
             ver_por_nome(dados_armazenados)    
                         
         elif escolha == 2:
+            limpar_terminal.limpar_terminal()
             ver_por_propriedade(dados_armazenados)
             
         elif escolha == 3:
+            limpar_terminal.limpar_terminal()
             print('Saindo do menu de visualizar items cadastrados....')
             break
         
@@ -91,30 +99,30 @@ def ver_por_nome(dados_totais):
     buscar_fabricante = input('\nDigite o nome da fabricante do seu item cadastrado: ')
             
     for fabricante, modelo, codigo in dados_totais:
-    
         if buscar_fabricante == fabricante:
             resultado_busca_por_nome(fabricante)
-                        
-            while True:
-                ver_propriedades_fabricante = input(f'Digite s/n para consultar as propriedades da fabricante {fabricante}: ').strip().lower()
+            
+            ver_propriedades_fabricante = input(f'Digite ( s/n ) para consultar as propriedades da fabricante {fabricante}: ').strip().lower()
+            
+            if ver_propriedades_fabricante == 's':
+                resultado_busca_propriedades_fabricante(fabricante, modelo, codigo)
+                input('Pressione qualquer Tecla: ')
+                break
                 
-                if ver_propriedades_fabricante == 's':
-                    resultado_busca_propriedades_fabricante(fabricante, modelo, codigo)
-                    break
-                    
-                elif ver_propriedades_fabricante == 'n':
-                    print(f"Saindo da consulta de propriedade atrelada a fabricante: '{fabricante}'")
-                    break
-                
-                else:
-                    print('\nDigite somente s/n')
-    
+            elif ver_propriedades_fabricante == 'n':
+                print(f"\nSaindo da consulta de propriedade atrelada a fabricante: '{fabricante}'\n")
+                input('Pressione qualquer Tecla: ')
+                break
+            
+            else:
+                print('\nDigite somente ( s/n )')
+
    
 # MOSTRAR PROPRIEDADE QUE PODE SER ACESSADA
 def ver_por_propriedade(dados_armazenados):
     while True:
         menu_visualizar_por_propriedade()
-        buscar_item_por_propriedade = input('Digite alguma das opções acima: ').strip().lower()
+        buscar_item_por_propriedade = input('Digite alguma das opções acima: ').strip()
 
         if buscar_item_por_propriedade in ['fabricante', 'modelo', 'codigo']:
             tipo_busca_propriedade(dados_armazenados, buscar_item_por_propriedade)
@@ -136,6 +144,8 @@ def tipo_busca_propriedade(dados_totais, tipo):
     elif tipo in ['fabricante', 'modelo', 'codigo']:
         tipo_acesso = input(f'Digite o tipo de acesso que deseja ver a partir da {tipo} do item ({menu_disponivel}): ')
         tipo_dado_armazenado = input(f'\nDigite o {tipo} do item: ').strip()
+        
+        limpar_terminal.limpar_terminal()
         
         for fabricante, modelo, codigo in dados_totais:
             if tipo == 'fabricante' and tipo_dado_armazenado == fabricante:
@@ -160,3 +170,7 @@ def tipo_busca_propriedade(dados_totais, tipo):
                     print(f'O {tipo_acesso} do seu item com codigo = {tipo_dado_armazenado} é = {modelo}')              
     else:
         print('Erro de tipo de acesso')
+        
+    input('Pressione qualquer Tecla: ')
+
+    limpar_terminal.limpar_terminal()

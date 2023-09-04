@@ -135,5 +135,3 @@ def atualizar_dados():
             break
                 
         salvar_dados(dados_atualizados)
-        
-        

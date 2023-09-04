@@ -68,30 +68,6 @@ def resultado_busca_propriedades_fabricante(fabricante, modelo, codigo):
     print(f"  [2].MODELO: '{modelo}'")
     print(f"  [3].CÓDIGO: '{codigo}'")
     print(f"\n'''''''''''''''''''''''''''''''''''")
-    
-# CARREGAR FUNCAO PRINCIPAL QUE EXECUTA A VISUALIZACAO DE ITEMS CADASTRADOS
-def ver_items():
-    dados_armazenados = carregar_dados()
-    while True:
-        limpar_terminal.limpar_terminal()
-        menu_ver_items()
-        escolha = int(input('Digite alguma das opções acima: '))
-    
-        if escolha == 1:
-            limpar_terminal.limpar_terminal()
-            ver_por_nome(dados_armazenados)    
-                        
-        elif escolha == 2:
-            limpar_terminal.limpar_terminal()
-            ver_por_propriedade(dados_armazenados)
-            
-        elif escolha == 3:
-            limpar_terminal.limpar_terminal()
-            print('Saindo do menu de visualizar items cadastrados....')
-            break
-        
-        else:
-            print('Digite um valor válido! (somente numeros)')
      
 
 # VER ITEMS CADASTRADOS POR NOME ( FABRICANTE )
@@ -174,3 +150,28 @@ def tipo_busca_propriedade(dados_totais, tipo):
     input('Pressione qualquer Tecla: ')
 
     limpar_terminal.limpar_terminal()
+    
+    
+# CARREGAR FUNCAO PRINCIPAL QUE EXECUTA A VISUALIZACAO DE ITEMS CADASTRADOS
+def ver_items():
+    dados_armazenados = carregar_dados()
+    while True:
+        limpar_terminal.limpar_terminal()
+        menu_ver_items()
+        escolha = int(input('Digite alguma das opções acima: '))
+    
+        if escolha == 1:
+            limpar_terminal.limpar_terminal()
+            ver_por_nome(dados_armazenados)    
+                        
+        elif escolha == 2:
+            limpar_terminal.limpar_terminal()
+            ver_por_propriedade(dados_armazenados)
+            
+        elif escolha == 3:
+            limpar_terminal.limpar_terminal()
+            print('Saindo do menu de visualizar items cadastrados....')
+            break
+        
+        else:
+            print('Digite um valor válido! (somente numeros)')

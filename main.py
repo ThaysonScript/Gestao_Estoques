@@ -1,8 +1,8 @@
 # --------------------- IMPORTAR PARTES DA APLICACAO --------------------------
-from modulos_projeto import cadastrar_item
-from modulos_projeto import ver_items
-from modulos_projeto import atualizar_item
-from modulos_projeto import deletar_item
+from modulos_projeto import cadastro
+from modulos_projeto import ver
+from modulos_projeto import atualizar
+from modulos_projeto import deletar
 
 import limpar_terminal
 
@@ -27,19 +27,19 @@ def escolha_usuario():
 
         if escolha == '1':
             limpar_terminal.limpar_terminal()
-            cadastrar_item.cadastro()
+            cadastro.cadastro()
             
         elif escolha == '2':
             limpar_terminal.limpar_terminal()
-            ver_items.ver_items()
+            ver.ver_items()
             
         elif escolha == '3':
             limpar_terminal.limpar_terminal()
-            atualizar_item.atualizar_dados()
+            atualizar.atualizar_dados()
             
         elif escolha == '4':
             limpar_terminal.limpar_terminal()
-            deletar_item.deletar_item()
+            deletar.deletar_item()
         
         elif escolha == '5':
             limpar_terminal.limpar_terminal()

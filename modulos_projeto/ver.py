@@ -47,7 +47,7 @@ def menu_disponivel_busca_por_propriedades(tipo):
 
 # MOSTRAR MENSAGEM DO FABRICANTE, CASO ENCONTRADO NO ESTOQUE
 def resultado_busca_por_nome(fabricante):
-    print(f"\n''''''''''''' RESULTADO DA BUSCA POR NOME DA FABRICANTE ''''''''''''''\n")
+    print("\n''''''''''''' RESULTADO DA BUSCA POR NOME DA FABRICANTE ''''''''''''''\n")
     print(f'O item com nome de fabricante = {fabricante} se encontra cadastrada no sistema!')
     print("\n'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
     print('Deseja ver as propriedades desse item? ')  # VER PROPRIEDADES DA FABRICANTE CONSULTADA
@@ -111,6 +111,7 @@ def tipo_busca_propriedade(dados_totais, tipo):
         
     elif tipo in ['fabricante', 'modelo', 'codigo']:
         tipo_acesso = input(f'Digite o tipo de acesso que deseja ver a partir da {tipo} do item ({menu_disponivel}): ')
+        
         tipo_dado_armazenado = input(f'\nDigite o {tipo} do item: ').strip()
         
         limpar_terminal.limpar_terminal()
@@ -140,30 +141,34 @@ def tipo_busca_propriedade(dados_totais, tipo):
         print('Erro de tipo de acesso')
         
     input('Pressione qualquer Tecla: ')
-
     limpar_terminal.limpar_terminal()
     
     
 # CARREGAR FUNCAO PRINCIPAL QUE EXECUTA A VISUALIZACAO DE ITEMS CADASTRADOS
 def ver_items():
-    dados_armazenados = carregar_dados()
-    while True:
-        limpar_terminal.limpar_terminal()
-        menu_ver_items()
-        escolha = int(input('Digite alguma das opções acima: '))
-    
-        if escolha == 1:
+    try:
+        dados_armazenados = carregar_dados()
+        while True:
             limpar_terminal.limpar_terminal()
-            ver_por_nome(dados_armazenados)    
-                        
-        elif escolha == 2:
-            limpar_terminal.limpar_terminal()
-            ver_por_propriedade(dados_armazenados)
-            
-        elif escolha == 3:
-            limpar_terminal.limpar_terminal()
-            print('Saindo do menu de visualizar items cadastrados....')
-            break
+            menu_ver_items()
+            escolha = int(input('Digite alguma das opções acima: '))
         
-        else:
-            print('Digite um valor válido! (somente numeros)')
+            if escolha == 1:
+                limpar_terminal.limpar_terminal()
+                ver_por_nome(dados_armazenados)    
+                            
+            elif escolha == 2:
+                limpar_terminal.limpar_terminal()
+                ver_por_propriedade(dados_armazenados)
+                
+            elif escolha == 3:
+                limpar_terminal.limpar_terminal()
+                print('Saindo do menu de visualizar items cadastrados....')
+                break
+            
+            else:
+                print('Digite um valor válido! (somente numeros)')
+                
+    except FileNotFoundError:
+        print('Arquivo.csv não existe, cadastre um novo item para executar essa consulta!')
+        input('Pressione qualquer Tecla para Continuar')

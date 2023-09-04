@@ -2,12 +2,8 @@ import limpar_terminal
 
 # CARREGAR DADOS CADASTRADOS
 def carregar_dados():
-    dados_totais = []
     with open('dados.csv', 'r') as dados:
-        for dado in dados:
-            fabricante, modelo, codigo = dado.strip().split(',')
-            dados_totais.append([fabricante, modelo, codigo])
-    return dados_totais
+        return [linha.strip().split(',') for linha in dados]
 
 # MENU PARA ACESSAR TIPO DE VISUALIZACAO
 def menu_ver_items():
@@ -30,25 +26,22 @@ def menu_visualizar_por_propriedade():
     
 # MENU DE CONSULTA QUE RETORNA O TIPO BUSCA QUE PODE SER ACESSADO
 def menu_disponivel_busca_por_propriedades(tipo):
+    tipos_busca = {
+        'fabricante': 'MODELO OU CÓDIGO',
+        'modelo': 'FABRICANTE OU CÓDIGO',
+        'codigo': 'FABRICANTE OU MODELO',
+        'sair': '[4].SAIR DO MENU DE TIPOS DE BUSCAS POR PROPRIEDADES DISPONIVEIS',
+    }
+    
     print("\n'''''' MENU DE TIPOS DE BUSCAS POR PROPRIEDADES DISPONIVEIS ''''''''''\n")
     
-    if tipo == 'fabricante':
-        print("MODELO OU CÓDIGO")
+    if tipo in tipos_busca:
+        print(tipos_busca[tipo])
         print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
-        return 'modelo ou codigo'
         
-    elif tipo == 'modelo':
-        print("FABRICANTE OU CÓDIGO")
-        print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
-        return 'fabricante ou codigo'
-        
-    elif tipo == 'codigo':
-        print("FABRICANTE OU MODELO")
-        print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
-        return 'fabricante ou modelo'
-        
-    elif tipo == 'sair':
-        print("[4].SAIR DO MENU DE TIPOS DE BUSCAS POR PROPRIEDADES DISPONIVEIS")
+        return tipos_busca[tipo].lower()
+    else:
+        print("Opção inválida")
         
     
 
@@ -57,7 +50,6 @@ def resultado_busca_por_nome(fabricante):
     print(f"\n''''''''''''' RESULTADO DA BUSCA POR NOME DA FABRICANTE ''''''''''''''\n")
     print(f'O item com nome de fabricante = {fabricante} se encontra cadastrada no sistema!')
     print("\n'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
-    
     print('Deseja ver as propriedades desse item? ')  # VER PROPRIEDADES DA FABRICANTE CONSULTADA
     
     

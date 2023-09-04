@@ -47,7 +47,5 @@ def cadastro():
     with open('dados.csv', 'a') as dados_csv:
         item_a_cadastrar = items_entrada()
         
-        print(item_a_cadastrar)
-        input()
         dados_csv.write(item_a_cadastrar)
         sucesso_ao_cadastrar()

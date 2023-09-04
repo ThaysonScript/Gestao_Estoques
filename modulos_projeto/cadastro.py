@@ -17,7 +17,7 @@ def gerar_codigo_aleatorio():
     return codigo_aleatorio
 
 # GERAR CODIGO
-def codigo(fabricante, modelo):
+def criar_codigo():
     while True:
         cod_aleatorio = input('Deseja gerar código aleatório? ( "s" ou "n" ): ').lower()
         if cod_aleatorio == 's':
@@ -29,19 +29,25 @@ def codigo(fabricante, modelo):
             break
         else:
             print('Entrada Inválida\n')
-        
-    return f'{fabricante},{modelo},{codigo}\n'
+            
+    return codigo
+
 
 # ITEM A SER CADASTRADO ( FABRICANTE, MODELO, CODIGO )
 def items_entrada():
     fabricante = input('Digite o nome da fabricante do item: ')
     modelo = input('Digite o modelo do item: ')
-    codigo(fabricante, modelo)
+    codigo = criar_codigo()
+    
+    return f'{fabricante},{modelo},{codigo}\n'
      
 # 2.2 CADASTRAR ITEMS COM PELO MENOS 3 PROPRIEDADES
 def cadastro():  
     menu_cadastro() 
     with open('dados.csv', 'a') as dados_csv:
         item_a_cadastrar = items_entrada()
+        
+        print(item_a_cadastrar)
+        input()
         dados_csv.write(item_a_cadastrar)
         sucesso_ao_cadastrar()

@@ -6,9 +6,8 @@ from modulos_projeto import deletar
 
 import limpar_terminal
 
-
 # 2.1. MENU INICIAL PARA O USUARIO SELECIONAR A OPCAO DE INTERESSE
-def menu_usuario():
+def menu_principal():
     print("\n'''''' ESCOLHA UMA OPÇÃO ''''''''''\n")
     print("[1].CADASTRAR ITEM")
     print("[2].BUSCAR ITEM")
@@ -17,12 +16,11 @@ def menu_usuario():
     print("[5].SAIR\n")
     print("''''''''''''''''''''''''''''''''''''")
     
-    
 #  SELECIONAR A OPCAO DE INTERESSE
-def escolha_usuario():
+def escolha_interesse():
     while True:
         limpar_terminal.limpar_terminal()
-        menu_usuario()  # CHAMAR MENU PRINCIPAL
+        menu_principal()  # CHAMAR MENU PRINCIPAL
         escolha = input('Digite uma opção de escolha acima: ')
 
         if escolha == '1':
@@ -49,7 +47,6 @@ def escolha_usuario():
         else:
             print('Digite uma opção válida!')
             
-            
 # EXECUTAR O INICIO DO PROGRAMA, EXECUTE DIRETAMENTE
 if __name__ == '__main__':  # NAO EXECUTAVEL SE FOR MODULO
-    escolha_usuario()
+    escolha_interesse()

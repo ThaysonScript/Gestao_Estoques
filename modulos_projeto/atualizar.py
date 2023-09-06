@@ -1,13 +1,12 @@
 import limpar_terminal
 
 # CARREGAR DADOS CADASTRADOS
-def carregar_dados():
+def carregar_items_armazenados():
     with open('dados.csv', 'r') as dados:
-        linhas = dados.readlines()
-    return linhas
+        return dados.readlines()
 
 # REGISTRAR DADOS TOTAIS (ATUALIZADOS E ANTIGOS)
-def salvar_dados(dados_atualizados):
+def salvar_items_armazenados(dados_atualizados):
     with open('dados.csv', 'w') as dados:
         dados.writelines(dados_atualizados)
         
@@ -21,70 +20,68 @@ def menu_tipo_atualizacao():
     print('[4].ATUALIZAR N° CODIGO DO ITEM')
     print('[5].SAIR DO MENU DE ATUALIZAÇÕES')
     print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
-
+    
+def dado_a_ser_alterado_selecionado(fabricante, modelo, codigo):
+    print(f"'''''''''DADOS DO PRODUTO SELECIONADO''''''''''")
+    print(f'FABRICANTE: {fabricante}')
+    print(f'MODELO: {modelo}')
+    print(f'CÓDIGO: {codigo}')
+    print("\n'''''''''''''''''''''''''''''''''''''''''''''''\n")
+    
+def dado_selecionado_foi_alterado(fabricante, modelo, codigo):
+    print(f'DADOS DO PRODUTO ATUALIZADOS')
+    print(f'FABRICANTE: {fabricante}')
+    print(f'MODELO: {modelo}')
+    print(f'CÓDIGO: {codigo}')
 
 # ATUALIZAR TODAS AS PROPRIEDADES
 def atualizar_todas_propriedades():
     nova_fabricante = input('Digite a nova fabricante: ').strip()
     novo_modelo = input('Digite o novo modelo: ').strip()
     novo_codigo = input('Digite o novo codigo: ').strip()
-    
     return f'{nova_fabricante},{novo_modelo},{novo_codigo}\n'
 
 # ATUALIZAR SOMENTE A FABRICANTE
 def atualizar_somente_fabricante(fabricante, modelo, codigo):
     fabricante_atual = input('Digite a fabricante atual do seu item: ')
-    if fabricante_atual == fabricante:
-        print(f"DADOS DO PRODUTO SELECIONADO: 'FABRICANTE': *{fabricante}, 'MODELO': {modelo}, ' N° codigo: {codigo} ")
 
-        print(f'Atualmente o fabricante desse item é {fabricante}')
+    dado_a_ser_alterado_selecionado(fabricante, modelo, codigo)
+    novo_fabricante = input('Digite o novo fabricante que você quer inserir: ')
+                            
+    print('Seu fabricante foi atualizado com sucesso!')
+    
+    dado_selecionado_foi_alterado(novo_fabricante, modelo, codigo)
+    return f'{novo_fabricante},{modelo},{codigo}\n'     
         
-        novo_fabricante = input('Digite o novo fabricante que você quer inserir: ')
-                              
-        print('Sucesso! Seu fabricante foi atualizado com sucesso!')
-        print(f"DADOS DO PRODUTO ATUALIZADOS: 'FABRICANTE': **{novo_fabricante}, 'MODELO': {modelo}, ' N° codigo: {codigo} ")
-        
-        return f'{novo_fabricante},{modelo},{codigo}\n'
-        
-        
-# ATUALIZAR SOMENTE A MODELO
+# ATUALIZAR SOMENTE O MODELO
 def atualizar_somente_modelo(fabricante, modelo, codigo):
     modelo_atual = input('Digite o seu modelo atual: ')
     
-    print(f"DADOS DO PRODUTO SELECIONADO: 'FABRICANTE': {fabricante}, 'MODELO': *{modelo}, ' N° codigo: {codigo} ")
-    print(f'Atualmente o modelo desse item é {modelo}')
-    
+    dado_a_ser_alterado_selecionado(fabricante, modelo, codigo)
     novo_modelo = input('Digite o novo modelo que você quer inserir:')
         
     print('Sucesso! Seu item foi atualizado com sucesso!')   
     
-    print(f"DADOS DO PRODUTO ATUALIZADO: 'FABRICANTE': {fabricante}, 'MODELO': **{modelo}, ' N° codigo: {codigo} ")
-    
-    return f'{fabricante},{novo_modelo},{codigo}\n'
-    
-    
+    dado_selecionado_foi_alterado(fabricante, novo_modelo, codigo)
+    return f'{fabricante},{novo_modelo},{codigo}\n' 
     
 # ATUALIZAR SOMENTE A CODIGO
 def atualizar_somente_codigo(fabricante, modelo, codigo):
     print('Recuperamos o seu código de produto atual digitado nesta sessão')
     
-    print(f"DADOS DO PRODUTO SELECIONADO: 'FABRICANTE': {fabricante}, 'MODELO': {modelo}, ' N° codigo: *{codigo} ")
-    
-    print(f'Atualmente o modelo desse item é {modelo}')
+    dado_a_ser_alterado_selecionado(fabricante, modelo, codigo)
     
     novo_codigo = input('Digite o novo codigo que você quer inserir:')
         
     print('Sucesso! Seu item foi atualizado com sucesso!')
     
-    print(f"DADOS DO PRODUTO ATUALIZADO: 'FABRICANTE': {fabricante}, 'MODELO': **{modelo}, ' N° codigo: **{novo_codigo} ")
-    
+    dado_selecionado_foi_alterado(fabricante, modelo, novo_codigo)
     return f'{fabricante},{modelo},{novo_codigo}\n'
-
 
 # PROCURAR DADO A ATUALIZAR
 def atualizar_dados():
     limpar_terminal.limpar_terminal()
-    dados_cadastrados = carregar_dados()
+    dados_cadastrados = carregar_items_armazenados()
     
     codigo_item_cadastrado = input('Digite o código do seu item cadastrado: ').strip()
     while True:
@@ -134,4 +131,4 @@ def atualizar_dados():
             print('SAINDO DO MENU DE ATUALIZAÇÕES....')
             break
                 
-        salvar_dados(dados_atualizados)
+        salvar_items_armazenados(dados_atualizados)

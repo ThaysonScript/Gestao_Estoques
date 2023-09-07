@@ -48,7 +48,7 @@ def confirmar_saida():
         else:
             print("Resposta inválida. Digite 'S' para sim ou 'N' para não.")
 
-def main(dados):
+def main(dados, mensagem=None):
     if platform.system() == "Windows":
         import msvcrt
     else:
@@ -67,9 +67,9 @@ def main(dados):
             altura, largura = stdscr.getmaxyx()
 
             stdscr.clear()
-            stdscr.addstr(0, 0, f"Digite o nome do produto (ou 'q' para sair): {termo_pesquisa}")
+            stdscr.addstr(0, 0, f"Digite uma das opções abaixo (ou 'q' para sair): {termo_pesquisa}")
         else:
-            print(f"Digite o nome do produto (ou 'q' para sair): {termo_pesquisa}")
+            print(f"{mensagem} (ou 'q' para sair): {termo_pesquisa}")
 
             if produtos == []:
                 for dado in dados:

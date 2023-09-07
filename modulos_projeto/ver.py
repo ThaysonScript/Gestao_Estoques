@@ -89,40 +89,102 @@ def ver_por_nome(dados_totais, pesquisa_avancada=False):
               
                 
 #  VER PROPRIEDADE A PARTIR DE DADO DE ENTRADA ESPECIFICO (FABRICANTE, MODELO, CODIGO)
-def tipo_busca_propriedade(dados_totais, tipo):
+def tipo_busca_propriedade(dados_totais, tipo, pesquisa_avancada=False):
     busca_disponivel = tipo_disponivel_busca_propriedade(tipo)
     
     if tipo not in ['fabricante', 'modelo', 'codigo']:
         print('Digite somente "fabricante, modelo" ou "codigo"')
         
     elif tipo in ['fabricante', 'modelo', 'codigo']:
-        tipo_acesso = input(f'Digite o tipo de acesso que deseja ver a partir da {tipo} do item ({busca_disponivel}): ')
+        if pesquisa_avancada == False:
+            tipo_acesso = input(f"Digite o tipo de acesso que deseja ver a partir da '{tipo}' do item ({busca_disponivel}): ")
         
-        tipo_dado_armazenado = input(f'\nDigite o {tipo} do item: ').strip()
-        
+        elif pesquisa_avancada == True:
+            lista = []
+            lista_formatada = []
+            buscas = busca_disponivel.split(' ou ')
+            lista.append(buscas)
+            
+            for l in lista:
+                for tip in l:
+                    lista_formatada.append([tip])
+            
+            mensagem = f'Digite o tipo de propriedade que desejada visualizar a partir da {tipo}'
+            
+            tipo_acesso = main(lista_formatada, mensagem)
+            
+            
         limpar_terminal.limpar_terminal()
-        
+            
+        tipo_dado_armazenado = input(f'\nDigite o {tipo} do item: ').strip()
+                
         for fabricante, modelo, codigo in dados_totais:
             if tipo == 'fabricante' and tipo_dado_armazenado == fabricante:
                 if tipo_acesso == 'modelo':
-                    print(f'O {tipo_acesso} do seu item com fabricante = {tipo_dado_armazenado} é = {modelo}')
+                    # CABECALHO
+                    print("+------------+------------+")
+                    print(f"| {tipo:<10} | {tipo_acesso:>10} |")
+                    print("+------------+------------+")
+
+                    # DADOS
+                    print(f"| {tipo_dado_armazenado:<10} | {modelo:>10} |")
+                    print("+------------+------------+\n")
+
                 
                 elif tipo_acesso == 'codigo':
-                    print(f'O {tipo_acesso} do seu item com fabricante = {tipo_dado_armazenado} é = {codigo}')
+                    # CABECALHO
+                    print("+------------+------------+")
+                    print(f"| {tipo:<10} | {tipo_acesso:>10} |")
+                    print("+------------+------------+")
+
+                    # DADOS
+                    print(f"| {tipo_dado_armazenado:<10} | {codigo:>10} |")
+                    print("+------------+------------+\n")
+                    
                     
             elif tipo == 'modelo' and tipo_dado_armazenado == modelo:
-                if tipo_acesso == 'fabricante':
-                    print(f'A {tipo_acesso} do seu item com modelo = {tipo_dado_armazenado} é = {fabricante}')
+                if tipo_acesso == 'fabricante':                    
+                    # CABECALHO
+                    print("+------------+------------+")
+                    print(f"| {tipo:<10} | {tipo_acesso:>10} |")
+                    print("+------------+------------+")
+
+                    # DADOS
+                    print(f"| {tipo_dado_armazenado:<10} | {fabricante:>10} |")
+                    print("+------------+------------+\n")
                 
                 elif tipo_acesso == 'codigo':
-                    print(f'O {tipo_acesso} do seu item com modelo = {tipo_dado_armazenado} é = {codigo}')
+                    # CABECALHO
+                    print("+------------+------------+")
+                    print(f"| {tipo:<10} | {tipo_acesso:>10} |")
+                    print("+------------+------------+")
+
+                    # DADOS
+                    print(f"| {tipo_dado_armazenado:<10} | {codigo:>10} |")
+                    print("+------------+------------+\n")
+                    
                     
             elif tipo == 'codigo' and tipo_dado_armazenado == codigo:
                 if tipo_acesso == 'fabricante':
-                    print(f'A {tipo_acesso} do seu item com codigo = {tipo_dado_armazenado} é = {fabricante}')
+                    # CABECALHO
+                    print("+------------+------------+")
+                    print(f"| {tipo:<10} | {tipo_acesso:>10} |")
+                    print("+------------+------------+")
+
+                    # DADOS
+                    print(f"| {tipo_dado_armazenado:<10} | {fabricante:>10} |")
+                    print("+------------+------------+\n")
                 
                 elif tipo_acesso == 'modelo':
-                    print(f'O {tipo_acesso} do seu item com codigo = {tipo_dado_armazenado} é = {modelo}')              
+                    # CABECALHO
+                    print("+------------+------------+")
+                    print(f"| {tipo:<10} | {tipo_acesso:>10} |")
+                    print("+------------+------------+")
+
+                    # DADOS
+                    print(f"| {tipo_dado_armazenado:<10} | {modelo:>10} |")
+                    print("+------------+------------+\n")           
+                    
     else:
         print('Erro de tipo de acesso')
         
@@ -139,11 +201,13 @@ def ver_por_propriedade(items_armazenados, pesquisa_avancada=False):
         
         elif pesquisa_avancada == True:
             tipos = [['fabricante'], ['modelo'], ['codigo']]
-            tipo_busca = main(tipos)
+            
+            mensagem = 'Digite por onde irá buscar a propriedade'
+            tipo_busca = main(tipos, mensagem)
 
 
         if tipo_busca in ['fabricante', 'modelo', 'codigo']:
-            tipo_busca_propriedade(items_armazenados, tipo_busca)
+            tipo_busca_propriedade(items_armazenados, tipo_busca, pesquisa_avancada)
             
         elif tipo_busca == 'sair':
             print('Saindo do menu de visualizar propriedades de um item cadastrado....')

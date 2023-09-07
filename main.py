@@ -3,6 +3,7 @@ from modulos_projeto import cadastro
 from modulos_projeto import ver
 from modulos_projeto import atualizar
 from modulos_projeto import deletar
+from modulos_pesquisas import menu_pesquisa
 
 import limpar_terminal
 
@@ -13,7 +14,8 @@ def menu_principal():
     print("[2].BUSCAR ITEM")
     print("[3].EDITAR ITENS CADASTRADOS")
     print("[4].REMOVER ITEM CADASTRADO")
-    print("[5].SAIR\n")
+    print("[5].REALIZAR PESQUISA AVANÇADA ( BETA )")
+    print("[6].SAIR\n")
     print("''''''''''''''''''''''''''''''''''''")
     
 #  SELECIONAR A OPCAO DE INTERESSE
@@ -38,8 +40,12 @@ def escolha_interesse():
         elif escolha == '4':
             limpar_terminal.limpar_terminal()
             deletar.deletar_item()
-        
+            
         elif escolha == '5':
+            limpar_terminal.limpar_terminal()
+            menu_pesquisa.opcoes()
+        
+        elif escolha == '6':
             limpar_terminal.limpar_terminal()
             print("\n******** SAINDO DO PROGRAMA *********\n")
             break

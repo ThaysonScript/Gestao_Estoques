@@ -1,3 +1,5 @@
+from modulos_pesquisas.pesquisa_avancada import main
+
 import limpar_terminal
 
 # CARREGAR DADOS CADASTRADOS
@@ -59,9 +61,14 @@ def resultado_propriedades_nome(fabricante, modelo, codigo):
      
 
 # VER ITEMS CADASTRADOS POR NOME ( FABRICANTE )
-def ver_por_nome(dados_totais):
-    fabricante_do_usuario = input('\nDigite o nome da fabricante do seu item cadastrado: ')
-            
+def ver_por_nome(dados_totais, pesquisa_avancada=False):
+    if pesquisa_avancada == False:
+        fabricante_do_usuario = input('\nDigite o nome da fabricante do seu item cadastrado: ')
+        
+    elif pesquisa_avancada == True:
+        carregar_items = carregar_items_csv()
+        fabricante_do_usuario = main(carregar_items)
+
     for fabricante, modelo, codigo in dados_totais:
         if fabricante_do_usuario == fabricante:
             resultado_por_nome(fabricante)
@@ -124,9 +131,16 @@ def tipo_busca_propriedade(dados_totais, tipo):
    
 
 # MOSTRAR PROPRIEDADE QUE PODE SER ACESSADA
-def ver_por_propriedade(items_armazenados):
+def ver_por_propriedade(items_armazenados, pesquisa_avancada=False):
         menu_visualizar_por_propriedade()
-        tipo_busca = input('Digite alguma das opções acima: ').strip()
+        
+        if pesquisa_avancada == False:
+            tipo_busca = input('Digite alguma das opções acima: ').strip()
+        
+        elif pesquisa_avancada == True:
+            tipos = [['fabricante'], ['modelo'], ['codigo']]
+            tipo_busca = main(tipos)
+
 
         if tipo_busca in ['fabricante', 'modelo', 'codigo']:
             tipo_busca_propriedade(items_armazenados, tipo_busca)
@@ -139,7 +153,7 @@ def ver_por_propriedade(items_armazenados):
     
 
 # CARREGAR FUNCAO PRINCIPAL QUE EXECUTA A VISUALIZACAO DE ITEMS CADASTRADOS
-def ver_items():
+def ver_items(pesquisa_avancada=False):
     try:
         items_armazenados = carregar_items_csv()
         limpar_terminal.limpar_terminal()
@@ -149,11 +163,11 @@ def ver_items():
     
         if tipo_de_visualizacao == 1:
             limpar_terminal.limpar_terminal()
-            ver_por_nome(items_armazenados)    
+            ver_por_nome(items_armazenados, pesquisa_avancada)    
                         
         elif tipo_de_visualizacao == 2:
             limpar_terminal.limpar_terminal()
-            ver_por_propriedade(items_armazenados)
+            ver_por_propriedade(items_armazenados, pesquisa_avancada)
             
         elif tipo_de_visualizacao == 3:
             limpar_terminal.limpar_terminal()

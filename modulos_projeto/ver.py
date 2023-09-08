@@ -114,6 +114,7 @@ def tipo_busca_propriedade(dados_totais, tipo, pesquisa_avancada=False):
                 mensagem = f'Digite o tipo de propriedade que desejada visualizar a partir da {tipo}'
                 
                 tipo_acesso = main(lista_formatada, mensagem)
+                acesso = tipo_acesso
                 
                 
             if acesso in ['fabricante', 'modelo', 'codigo']:

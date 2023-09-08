@@ -83,48 +83,56 @@ def atualizar_dados(pesquisa_avancada=False):
     limpar_terminal.limpar_terminal()
     dados_cadastrados = carregar_items_armazenados()
     
-    if pesquisa_avancada == False:
+    while True:
+        menu_tipo_atualizacao()
+        
         codigo_item_cadastrado = input('Digite o código do seu item cadastrado: ').strip()
+        tipo_atualizar = input('Digite o tipo de atualização desejada: ')
         
-    menu_tipo_atualizacao()
-    tipo_atualizar = int(input('Digite o tipo de atualização desejada: '))
-    
-    limpar_terminal.limpar_terminal()
-    
-    dados_atualizados = []
-    for linha in dados_cadastrados:
-        fabricante, modelo, codigo = linha.strip().split(',')
+        limpar_terminal.limpar_terminal()
         
-        if codigo_item_cadastrado == codigo:
-            if tipo_atualizar == 1:
-                todas_propriedades = atualizar_todas_propriedades()
-                dados_atualizados.append(todas_propriedades)
-                limpar_terminal.limpar_terminal()
-                print('Atualizado com Sucesso!')
-                input('Pressione qualquer Tecla')                 
-                
-            elif tipo_atualizar == 2:
-                atualizar_fabricante = atualizar_somente_fabricante(fabricante, modelo, codigo)
-                dados_atualizados.append(atualizar_fabricante)
-                limpar_terminal.limpar_terminal()
-                print('Atualizado com Sucesso!')
-                input('Pressione qualquer Tecla')                    
+        dados_atualizados = []
+        for linha in dados_cadastrados:
+            fabricante, modelo, codigo = linha.strip().split(',')
+            
+            if codigo_item_cadastrado == codigo:
+                if tipo_atualizar == '1':
+                    todas_propriedades = atualizar_todas_propriedades()
+                    dados_atualizados.append(todas_propriedades)
+                    limpar_terminal.limpar_terminal()
+                    print('Atualizado com Sucesso!')
+                    input('Pressione "Enter" para Continuar')                 
                     
-            elif tipo_atualizar == 3:
-                atualizar_modelo = atualizar_somente_modelo(fabricante, modelo, codigo)
-                dados_atualizados.append(atualizar_modelo)
-                limpar_terminal.limpar_terminal()
-                print('Atualizado com Sucesso!')
-                input('Pressione qualquer Tecla')                    
-                
-            elif tipo_atualizar == 4:
-                atualizar_codigo = atualizar_somente_codigo(fabricante, modelo, codigo)
-                dados_atualizados.append(atualizar_codigo) 
-                limpar_terminal.limpar_terminal() 
-                print('Atualizado com Sucesso!')
-                input('Pressione qualquer Tecla') 
+                elif tipo_atualizar == '2':
+                    atualizar_fabricante = atualizar_somente_fabricante(fabricante, modelo, codigo)
+                    dados_atualizados.append(atualizar_fabricante)
+                    limpar_terminal.limpar_terminal()
+                    print('Atualizado com Sucesso!')
+                    input('Pressione "Enter" para Continuar')                    
+                        
+                elif tipo_atualizar == '3':
+                    atualizar_modelo = atualizar_somente_modelo(fabricante, modelo, codigo)
+                    dados_atualizados.append(atualizar_modelo)
+                    limpar_terminal.limpar_terminal()
+                    print('Atualizado com Sucesso!')
+                    input('Pressione "Enter" para Continuar')                    
                     
-        else:
-            dados_atualizados.append(f'{fabricante},{modelo},{codigo}\n')
-                
-    salvar_items_armazenados(dados_atualizados)
+                elif tipo_atualizar == '4':
+                    atualizar_codigo = atualizar_somente_codigo(fabricante, modelo, codigo)
+                    dados_atualizados.append(atualizar_codigo) 
+                    limpar_terminal.limpar_terminal() 
+                    print('Atualizado com Sucesso!')
+                    input('Pressione "Enter" para Continuar')
+                    
+            elif tipo_atualizar == '5':
+                print('Saindo do Menu de Atualizações....')
+                input('Pressione "Enter" para Continuar')
+                break
+            
+            elif codigo_item_cadastrado == '' or tipo_atualizar == '':
+                print('Digite Entradas Válidas!')
+            
+            else:
+                dados_atualizados.append(f'{fabricante},{modelo},{codigo}\n')
+                    
+        salvar_items_armazenados(dados_atualizados)

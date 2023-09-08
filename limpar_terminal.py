@@ -2,19 +2,19 @@ import os
 
 def limpar_terminal():
     try:
-        # Verificar o sistema operacional
+        # VERIFICAR O SISTEMA OPERACIONAL
         sistema_operacional = os.name
 
         if sistema_operacional == "posix" or "linux" in sistema_operacional.lower():
-            # Sistema Unix (Linux, macOS)
+            # SISTEMA UNIX (Linux, macOS)
             os.system("clear")
             
         elif sistema_operacional == "nt" or "windows" in sistema_operacional.lower():
-            # Windows
+            # WINDOWS
             os.system("cls")
             
         else:
-            # Se o sistema operacional não for reconhecido, usar sequência de escape ANSI para limpar
+            # USAR ESCAPE ANSI CASO SISTEMA NAO ENCONTRADO
             print("\033c", end="")
     
     except Exception as e:

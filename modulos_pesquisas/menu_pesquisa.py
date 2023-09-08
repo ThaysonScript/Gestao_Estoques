@@ -27,4 +27,5 @@ def opcoes():
         elif escolha == '4':
             break
         else:
-            print('Digite um valor válido!')
+            print('\nDigite um valor válido!\n')
+            input('Digite "Enter" para Continuar')

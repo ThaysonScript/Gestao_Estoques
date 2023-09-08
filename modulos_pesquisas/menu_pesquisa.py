@@ -5,8 +5,7 @@ import limpar_terminal
 def menu_pesquisa():
     print("\n'''''' OPÇÕES DE PESQUISA DISPONÍVEIS ''''''''''\n")
     print("[1].BUSCAR ITEM")
-    print("[2].REMOVER ITEM CADASTRADO")
-    print("[3].SAIR")
+    print("[2].SAIR")
     print("\n''''''''''''''''''''''''''''''''''''\n")
     
 
@@ -20,8 +19,6 @@ def opcoes():
         if escolha == '1':
             pesquisa_avancada.tipo_operacao(escolha)
         elif escolha == '2':
-            pesquisa_avancada.tipo_operacao(escolha)
-        elif escolha == '3':
             break
         else:
             print('\nDigite um valor válido!\n')

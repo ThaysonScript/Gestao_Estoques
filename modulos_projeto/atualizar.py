@@ -134,36 +134,42 @@ def tipo_escolha_atualizacao(dados_cadastrados, codigo_item_cadastrado, tipo_atu
 # 2.4. EDITAR AS PROPRIEDADES DE UM ITEM CADASTRADO
 def atualizar_dados(pesquisa_avancada=False):   # FUNCAO PRINCIPAL
     limpar_terminal.limpar_terminal()
-    dados_cadastrados = carregar_items_armazenados()
     
-    while True:    
-        codigo_item_cadastrado = input('Digite o código do seu item cadastrado: ').strip()    
-        if codigo_item_cadastrado != '':
-            menu_tipo_atualizacao()
-            tipo_atualizar = input('Digite o tipo de atualização desejada: ')
-            
-            if tipo_atualizar == '' or tipo_atualizar >= '6' or tipo_atualizar <= '0':
-                limpar_terminal.limpar_terminal()
-                print('\nDigite Somente Entradas Válidas!\n')
-                print('Redirecionando para o Menu Principal....')
-                input('\nPressione "Enter" para Continuar')
-                limpar_terminal.limpar_terminal()
-                break
+    try:
+        dados_cadastrados = carregar_items_armazenados()
         
-            elif tipo_atualizar == '5':
-                print('Saindo do Menu de Atualizações....')
-                input('Pressione "Enter" para Continuar')
-                break
-            
-            else:
-                dados_atualizados = tipo_escolha_atualizacao(dados_cadastrados, codigo_item_cadastrado, tipo_atualizar)
-                                            
-                salvar_items_armazenados(dados_atualizados)
-                limpar_terminal.limpar_terminal()
-                break
+        while True:    
+            codigo_item_cadastrado = input('Digite o código do seu item cadastrado: ').strip()    
+            if codigo_item_cadastrado != '':
+                menu_tipo_atualizacao()
+                tipo_atualizar = input('Digite o tipo de atualização desejada: ')
                 
-        else:
-            limpar_terminal.limpar_terminal()
-            print('\nDigite um codigo válido!\n')
-            input('Pressione "Enter" para Continuar')
-            limpar_terminal.limpar_terminal()
+                if tipo_atualizar == '' or tipo_atualizar >= '6' or tipo_atualizar <= '0':
+                    limpar_terminal.limpar_terminal()
+                    print('\nDigite Somente Entradas Válidas!\n')
+                    print('Redirecionando para o Menu Principal....')
+                    input('\nPressione "Enter" para Continuar')
+                    limpar_terminal.limpar_terminal()
+                    break
+            
+                elif tipo_atualizar == '5':
+                    print('Saindo do Menu de Atualizações....')
+                    input('Pressione "Enter" para Continuar')
+                    break
+                
+                else:
+                    dados_atualizados = tipo_escolha_atualizacao(dados_cadastrados, codigo_item_cadastrado, tipo_atualizar)
+                                                
+                    salvar_items_armazenados(dados_atualizados)
+                    limpar_terminal.limpar_terminal()
+                    break
+                    
+            else:
+                limpar_terminal.limpar_terminal()
+                print('\nDigite um codigo válido!\n')
+                input('Pressione "Enter" para Continuar')
+                limpar_terminal.limpar_terminal()
+                
+    except FileNotFoundError:
+        print('Arquivo.csv não existe, cadastre um novo item para executar essa consulta!')
+        input('Pressione qualquer Tecla para Continuar')

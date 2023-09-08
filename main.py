@@ -34,8 +34,8 @@ def menu_principal():
     print("[2].BUSCAR ITEM")
     print("[3].EDITAR ITENS CADASTRADOS")
     print("[4].REMOVER ITEM CADASTRADO")
-    print("[5].REALIZAR PESQUISA AVANÇADA ( BETA )")
     print("[6].SAIR\n")
+    print("[5].REALIZAR PESQUISA AVANÇADA ( BETA )")
     print("[7].CREDITOS DOS DESENVOLVEDORES\n")
     print("''''''''''''''''''''''''''''''''''''")
     
@@ -44,8 +44,8 @@ def escolha_interesse():
     i = 0
     while True:
         if i == 0:
-            # creditos.creditos()
-            # sleep(3)
+            creditos.creditos()
+            sleep(3)
             i += 1
         else:
             limpar_terminal.limpar_terminal()

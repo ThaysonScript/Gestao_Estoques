@@ -10,11 +10,10 @@ def registrar_delete(linhas_atualizadas):
 
 # 2.5 OPCAO PARA REMOVER UM ITEM CADASTRADO
 def deletar_item():
-    deletar_item = input("Digite o nome do item que deseja excluir: ")
-        
-    linhas_atualizadas = carregar_items_delete(deletar_item)
-                        
     try:
+        deletar_item = input("Digite o nome do item que deseja excluir: ")
+        linhas_atualizadas = carregar_items_delete(deletar_item)
+        
         print(f"Registro com o nome '{deletar_item}' irá ser excluído.\n")  
     
         while True:

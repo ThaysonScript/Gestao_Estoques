@@ -1,4 +1,4 @@
-import limpar_terminal
+import limpar_terminal  # IMPORTAR LIMPADOR DE TERMINAL
 
 # CARREGAR DADOS CADASTRADOS
 def carregar_items_armazenados():
@@ -10,7 +10,6 @@ def salvar_items_armazenados(dados_atualizados):
     with open('dados.csv', 'w') as dados:
         dados.writelines(dados_atualizados)
         
-
 # MOSTRAR MENU DE ESCOLHA PARA ATUALIZAR
 def menu_tipo_atualizacao():
     print("\n''''''''''' MENU DE TIPOS DE ATUALIZAÇÕES ''''''''''''''''\n")
@@ -21,6 +20,7 @@ def menu_tipo_atualizacao():
     print('[5].SAIR DO MENU DE ATUALIZAÇÕES')
     print("\n''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
     
+# SETAR O DADO QUE VAI SER ALTERADO
 def dado_a_ser_alterado_selecionado(fabricante, modelo, codigo):
     print(f"'''''''''DADOS DO PRODUTO SELECIONADO''''''''''")
     print(f'FABRICANTE: {fabricante}')
@@ -28,6 +28,7 @@ def dado_a_ser_alterado_selecionado(fabricante, modelo, codigo):
     print(f'CÓDIGO: {codigo}')
     print("\n'''''''''''''''''''''''''''''''''''''''''''''''\n")
     
+# SETAR O DADO JA ALTERADO
 def dado_selecionado_foi_alterado(fabricante, modelo, codigo):
     print(f'DADOS DO PRODUTO ATUALIZADOS')
     print(f'FABRICANTE: {fabricante}')
@@ -78,17 +79,16 @@ def atualizar_somente_modelo(fabricante, modelo, codigo):
 # ATUALIZAR SOMENTE A CODIGO
 def atualizar_somente_codigo(fabricante, modelo, codigo):
     print('Recuperamos o seu código de produto atual digitado nesta sessão\n')
+    
     dado_a_ser_alterado_selecionado(fabricante, modelo, codigo)
     
     novo_codigo = input('Digite o novo codigo que você quer inserir:')
-        
     print('Sucesso! Seu item foi atualizado!')
     
     dado_selecionado_foi_alterado(fabricante, modelo, novo_codigo)
-    
     return f'{fabricante},{modelo},{novo_codigo}\n'
 
-
+# OPCOES DE EDICAO DOS ITEMS
 def tipo_escolha_atualizacao(dados_cadastrados, codigo_item_cadastrado, tipo_atualizar):
     dados_atualizados = []
     for linha in dados_cadastrados:
@@ -129,11 +129,10 @@ def tipo_escolha_atualizacao(dados_cadastrados, codigo_item_cadastrado, tipo_atu
                 
         else:
             dados_atualizados.append(f'{fabricante},{modelo},{codigo}\n')
-            
     return dados_atualizados    
     
-# PROCURAR DADO A ATUALIZAR
-def atualizar_dados(pesquisa_avancada=False):
+# 2.4. EDITAR AS PROPRIEDADES DE UM ITEM CADASTRADO
+def atualizar_dados(pesquisa_avancada=False):   # FUNCAO PRINCIPAL
     limpar_terminal.limpar_terminal()
     dados_cadastrados = carregar_items_armazenados()
     

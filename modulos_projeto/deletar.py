@@ -1,4 +1,5 @@
-def carregar_items(deletar_item):    
+# EFETUAR A REMOCAO DO ITEM A DELETAR
+def carregar_items_delete(deletar_item):    
     with open("dados.csv", "r") as dados:
         return [linha for linha in dados if deletar_item not in linha]
 
@@ -7,12 +8,12 @@ def registrar_delete(linhas_atualizadas):
     with open("dados.csv", "w") as arquivo_csv:
             arquivo_csv.writelines(linhas_atualizadas)
 
-
-# CARREGAR DADOS CADASTRADOS E PROCURAR DADO ESPECIFICO PARA EXCLUIR
+# 2.5 OPCAO PARA REMOVER UM ITEM CADASTRADO
 def deletar_item():
     deletar_item = input("Digite o nome do item que deseja excluir: ")
-    linhas_atualizadas = carregar_items(deletar_item)
-                
+        
+    linhas_atualizadas = carregar_items_delete(deletar_item)
+                        
     try:
         print(f"Registro com o nome '{deletar_item}' irá ser excluído.\n")  
     

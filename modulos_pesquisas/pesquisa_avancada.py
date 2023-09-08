@@ -1,38 +1,28 @@
-from modulos_projeto import ver
-from modulos_projeto import atualizar
-from modulos_projeto import deletar
+from modulos_projeto import ver         # IMPORTAR VISUALIZAR
+import limpar_terminal                  # IMPORTAR LIMPADOR DE TERMINAL
 
+# IMPORTAR MODULOS ADICIONAIS
 import platform
 import os
 import sys
 
-import limpar_terminal
-
-
+# TIPO DE BUSCA PROFUNDA
 def tipo_operacao(tipo):
     if tipo == '1':
         ver.ver_items(pesquisa_avancada = True)
-        
-    elif tipo == '2':
-        atualizar.atualizar_dados(pesquisa_avancada = True)
-            
-    elif tipo == '3':
-        deletar.deletar_item()
-        
-        
-
 
 # Lista fictícia de produtos
 # produtos = ["Produto 1", "Produto 2", "Produto 3", "Produto 4", "Produto 5"]
 
 produtos = []
 
+# AUTOCOMPLETAR PESQUISA COM DADO ARMAZENADO
 def autocompletar(termo_pesquisa):
     termo_pesquisa = termo_pesquisa.lower()
     sugestoes = [produto for produto in produtos if termo_pesquisa in produto.lower()]
-            
     return sugestoes
 
+# CONFIRMAR SAIDA DA PESQUISA-AVANCADA
 def confirmar_saida():
     while True:
         resposta = input("Deseja realmente sair? (S/N): ").strip().lower()
@@ -46,8 +36,9 @@ def confirmar_saida():
         else:
             print("Resposta inválida. Digite 'S' para sim ou 'N' para não.")
 
+# FUNCAO PRINCIPAL EXECULTADORA
 def main(dados, mensagem=None):
-    if platform.system() == "Windows":
+    if platform.system() == "Windows":  # VERIFICAR TIPO DE MAQUINA PARA IMPORTAR LIBS ESPECIFICAS
         import msvcrt
     else:
         import curses

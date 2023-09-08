@@ -51,7 +51,8 @@ def escolha_interesse():
             break
         
         else:
-            print('Digite uma opção válida!')
+            print('\nDigite uma opção válida!\n')
+            input('Pressione qualquer Tecla para Continuar')
             
 # EXECUTAR O INICIO DO PROGRAMA, EXECUTE DIRETAMENTE
 if __name__ == '__main__':  # NAO EXECUTAVEL SE FOR MODULO

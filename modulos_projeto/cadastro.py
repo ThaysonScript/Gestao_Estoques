@@ -43,7 +43,13 @@ def novos_items_a_cadastrar():
 def cadastro():  
     menu_cadastro() 
     with open('dados.csv', 'a') as dados_csv:
-        dados_csv.write(novos_items_a_cadastrar())
-        
-        print("\n*********** SEU ITEM FOI CADASTRADO! ***********\n")
-        input('Pressione qualquer Tecla para Continuar')
+        novos_cadastros = novos_items_a_cadastrar()
+        novo = novos_cadastros.split(',')
+        if novo[0] == '' or novo[1] == '' or novo[2] == 'None\n' or novo[2] == '\n':
+            print('Não pode ser adicionado cadastros vazios!\n')
+            
+        else:
+            dados_csv.write(novos_cadastros)
+            print("\n*********** SEU ITEM FOI CADASTRADO! ***********\n")
+            
+    input('Pressione qualquer Tecla para Continuar')

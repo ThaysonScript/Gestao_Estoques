@@ -1,4 +1,6 @@
 from modulos_projeto import ver
+from modulos_projeto import atualizar
+from modulos_projeto import deletar
 
 import platform
 import os
@@ -12,17 +14,13 @@ def tipo_operacao(tipo):
         ver.ver_items(pesquisa_avancada = True)
         
     elif tipo == '2':
-        pass
-    
+        atualizar.atualizar_dados(pesquisa_avancada = True)
+            
     elif tipo == '3':
-        pass
+        deletar.deletar_item()
         
         
-        
-        
-        
-        
-        
+
 
 # Lista fictícia de produtos
 # produtos = ["Produto 1", "Produto 2", "Produto 3", "Produto 4", "Produto 5"]

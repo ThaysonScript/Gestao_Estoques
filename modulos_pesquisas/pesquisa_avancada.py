@@ -1,3 +1,22 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃               ┃╺┳╸┏━┓┏━┓━━━━━━━━  ** pesquisa_avancada.py **  ━━━━━━━━━━━┏━┓┏━┓              ┃
+# ┃               ┃┃┃┃┃┃┃┏┛     VERSÃO: 1.0                             ┏━┓┏━┛┏━┛                ┃
+# ┃                ┃┃┗┛┗┛┃┃      AUTORES:                                                        ┃
+# ┃                                  Thayson Guedes de Medeiros                                  ┃
+# ┃                                  Thiago Ferreira dos Santos                                  ┃
+# ┃               ┗┻━┓┏┓┏━┛     DATA DE CRIAÇÃO:                       ┃┏━┛┃ ┃┃                  ┃
+# ┃                 ┗━┛┗┛           08 de setembro de 2023                ┗┛ ┗┛                  ┃
+# ┃                                                                                              ┃
+# ┃  DESCRIÇÃO:                                                                                  ┃
+# ┃  Este módulo executa [ a pesquisa melhorada de items ].                                      ┃
+# ┃                                                                                              ┃
+# ┃  LINKS ÚTEIS:                                                                                ┃
+# ┃  - Repositório do projeto: [ https://github.com/ThaysonScript/python_code ]                  ┃
+# ┃  - Repositório do módulo: [ https://github.com/ThaysonScript/python_code/blob/main/modulos_pesquisas/pesquisa_avancada.py ] ┃
+# ┃  - Documentação de descrições e requisitos do projeto: [ pasta: descricao_projeto ]          ┃
+# ┃                                                                                              ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
 from modulos_projeto import ver         # IMPORTAR VISUALIZAR
 import limpar_terminal                  # IMPORTAR LIMPADOR DE TERMINAL
 

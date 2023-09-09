@@ -1,10 +1,29 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃               ┃╺┳╸┏━┓┏━┓━━━━━━━━  ** deletar.py **  ━━━━━━━━━━━┏━┓┏━┓                        ┃
+# ┃               ┃┃┃┃┃┃┃┏┛     VERSÃO: 1.0                             ┏━┓┏━┛┏━┛                ┃
+# ┃                ┃┃┗┛┗┛┃┃      AUTORES:                                                        ┃
+# ┃                                  Thayson Guedes de Medeiros                                  ┃
+# ┃                                  Thiago Ferreira dos Santos                                  ┃
+# ┃               ┗┻━┓┏┓┏━┛     DATA DE CRIAÇÃO:                       ┃┏━┛┃ ┃┃                  ┃
+# ┃                 ┗━┛┗┛           08 de setembro de 2023                ┗┛ ┗┛                  ┃
+# ┃                                                                                              ┃
+# ┃  DESCRIÇÃO:                                                                                  ┃
+# ┃  Este módulo executa [ a deletacao de items ].                                               ┃
+# ┃                                                                                              ┃
+# ┃  LINKS ÚTEIS:                                                                                ┃
+# ┃  - Repositório do projeto: [ https://github.com/ThaysonScript/python_code ]                  ┃
+# ┃  - Repositório do módulo: [ https://github.com/ThaysonScript/python_code/blob/main/modulos_projeto/deletar.py ] ┃
+# ┃  - Documentação de descrições e requisitos do projeto: [ pasta: descricao_projeto ]          ┃
+# ┃                                                                                              ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
 # EFETUAR A REMOCAO DO ITEM A DELETAR
-def carregar_items_delete(deletar_item):    
+def carregar_items_delete(deletar_item):    #  2.6. Persistência dos dados em arquivo .csv contendo itens e suas propriedades
     with open("dados.csv", "r") as dados:
         return [linha for linha in dados if deletar_item not in linha]
 
 # REGISTRAR A EXCLUSAO DE UM DADO
-def registrar_delete(linhas_atualizadas):
+def registrar_delete(linhas_atualizadas):   #  2.6. Persistência dos dados em arquivo .csv contendo itens e suas propriedades
     with open("dados.csv", "w") as arquivo_csv:
             arquivo_csv.writelines(linhas_atualizadas)
 

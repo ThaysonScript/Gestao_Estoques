@@ -12,7 +12,7 @@
 # ┃                                                                                              ┃
 # ┃  LINKS ÚTEIS:                                                                                ┃
 # ┃  - Repositório do projeto: [ https://github.com/ThaysonScript/python_code ]                  ┃
-# ┃  - Repositório do módulo: [ https://github.com/ThaysonScript/python_code/blob/main/main.py ] ┃
+# ┃  - Repositório do módulo: [ https://github.com/ThaysonScript/python_code/blob/main/modulos_projeto/cadastro.py ] ┃
 # ┃  - Documentação de descrições e requisitos do projeto: [ pasta: descricao_projeto ]          ┃
 # ┃                                                                                              ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛

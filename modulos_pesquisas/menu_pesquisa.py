@@ -1,3 +1,22 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃               ┃╺┳╸┏━┓┏━┓━━━━━━━━  ** menu_pesquisa.py **  ━━━━━━━━━━━┏━┓┏━┓                  ┃
+# ┃               ┃┃┃┃┃┃┃┏┛     VERSÃO: 1.0                             ┏━┓┏━┛┏━┛                ┃
+# ┃                ┃┃┗┛┗┛┃┃      AUTORES:                                                        ┃
+# ┃                                  Thayson Guedes de Medeiros                                  ┃
+# ┃                                  Thiago Ferreira dos Santos                                  ┃
+# ┃               ┗┻━┓┏┓┏━┛     DATA DE CRIAÇÃO:                       ┃┏━┛┃ ┃┃                  ┃
+# ┃                 ┗━┛┗┛           08 de setembro de 2023                ┗┛ ┗┛                  ┃
+# ┃                                                                                              ┃
+# ┃  DESCRIÇÃO:                                                                                  ┃
+# ┃  Este módulo executa [ o menu da pesquisa melhorada de items ].                              ┃
+# ┃                                                                                              ┃
+# ┃  LINKS ÚTEIS:                                                                                ┃
+# ┃  - Repositório do projeto: [ https://github.com/ThaysonScript/python_code ]                  ┃
+# ┃  - Repositório do módulo: [ https://github.com/ThaysonScript/python_code/blob/main/modulos_pesquisas/menu_pesquisa.py ] ┃
+# ┃  - Documentação de descrições e requisitos do projeto: [ pasta: descricao_projeto ]          ┃
+# ┃                                                                                              ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
 from modulos_pesquisas import pesquisa_avancada
 
 import limpar_terminal

@@ -1,10 +1,29 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃               ┃╺┳╸┏━┓┏━┓━━━━━━━━  ** ver.py **  ━━━━━━━━━━━┏━┓┏━┓                            ┃
+# ┃               ┃┃┃┃┃┃┃┏┛     VERSÃO: 1.0                             ┏━┓┏━┛┏━┛                ┃
+# ┃                ┃┃┗┛┗┛┃┃      AUTORES:                                                        ┃
+# ┃                                  Thayson Guedes de Medeiros                                  ┃
+# ┃                                  Thiago Ferreira dos Santos                                  ┃
+# ┃               ┗┻━┓┏┓┏━┛     DATA DE CRIAÇÃO:                       ┃┏━┛┃ ┃┃                  ┃
+# ┃                 ┗━┛┗┛           08 de setembro de 2023                ┗┛ ┗┛                  ┃
+# ┃                                                                                              ┃
+# ┃  DESCRIÇÃO:                                                                                  ┃
+# ┃  Este módulo executa [ a visualizacao de items ].                                            ┃
+# ┃                                                                                              ┃
+# ┃  LINKS ÚTEIS:                                                                                ┃
+# ┃  - Repositório do projeto: [ https://github.com/ThaysonScript/python_code ]                  ┃
+# ┃  - Repositório do módulo: [ https://github.com/ThaysonScript/python_code/blob/main/modulos_projeto/ver.py ] ┃
+# ┃  - Documentação de descrições e requisitos do projeto: [ pasta: descricao_projeto ]          ┃
+# ┃                                                                                              ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
 from modulos_pesquisas.pesquisa_avancada import main
 
 import limpar_terminal
 
 # CARREGAR DADOS CADASTRADOS
 def carregar_items_csv():
-    with open('dados.csv', 'r') as dados:
+    with open('dados.csv', 'r') as dados:       #  2.6. Persistência dos dados em arquivo .csv contendo itens e suas propriedades
         return [linha.strip().split(',') for linha in dados]
 
 # MENU PARA ACESSAR TIPO DE VISUALIZACAO
@@ -59,7 +78,7 @@ def resultado_propriedades_nome(fabricante, modelo, codigo):
     print(f"  [3].CÓDIGO: '{codigo}'")
     print(f"\n'''''''''''''''''''''''''''''''''''\n")
      
-
+# 2.3.1. busca por nome do item
 # VER ITEMS CADASTRADOS POR NOME ( FABRICANTE )
 def ver_por_nome(dados_totais, pesquisa_avancada=False):
     if pesquisa_avancada == False:
@@ -86,7 +105,6 @@ def ver_por_nome(dados_totais, pesquisa_avancada=False):
             
             else:
                 print('\nDigite somente "s" ou "n"')
-              
                 
 #  VER PROPRIEDADE A PARTIR DE DADO DE ENTRADA ESPECIFICO (FABRICANTE, MODELO, CODIGO)
 def tipo_busca_propriedade(dados_totais, tipo, pesquisa_avancada=False):
@@ -197,7 +215,7 @@ def tipo_busca_propriedade(dados_totais, tipo, pesquisa_avancada=False):
         
     limpar_terminal.limpar_terminal()
    
-
+# 2.3.2. busca por propriedade do item
 # MOSTRAR PROPRIEDADE QUE PODE SER ACESSADA
 def ver_por_propriedade(items_armazenados, pesquisa_avancada=False):
     while True:
@@ -227,6 +245,7 @@ def ver_por_propriedade(items_armazenados, pesquisa_avancada=False):
             limpar_terminal.limpar_terminal()
     
 
+# 2.3. Opção para buscar por itens cadastrados (e suas propriedades)
 # CARREGAR FUNCAO PRINCIPAL QUE EXECUTA A VISUALIZACAO DE ITEMS CADASTRADOS
 def ver_items(pesquisa_avancada=False):
     try:
@@ -240,12 +259,12 @@ def ver_items(pesquisa_avancada=False):
         
             if tipo_de_visualizacao == '1':
                 limpar_terminal.limpar_terminal()
-                ver_por_nome(items_armazenados, pesquisa_avancada)    
+                ver_por_nome(items_armazenados, pesquisa_avancada)    # 2.3.1. busca por nome do item
                 break
 
             elif tipo_de_visualizacao == '2':
                 limpar_terminal.limpar_terminal()
-                ver_por_propriedade(items_armazenados, pesquisa_avancada)
+                ver_por_propriedade(items_armazenados, pesquisa_avancada)  # 2.3.2. busca por propriedade do item
                 break
                 
             elif tipo_de_visualizacao == '3':

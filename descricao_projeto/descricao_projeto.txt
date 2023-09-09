@@ -34,6 +34,8 @@ as informações essenciais de seus produtos, a fim de agilizar processos e gara
                 - modelo, retornar o modelo atual cadastrado e permitir a edição desse modelo, senão, digite somente enter;
                 - codigo de produto, retornar o codigo do produto atual e permite a edição desse codigo, senão, digite somente enter.
 
-    - **Persistência de dados em Arquivos .csv:** 
+    2.5. Opção para remover um item cadastrado
+
+    2.6. **Persistência de dados em Arquivos .csv:** 
         Todas as informações cadastradas, atualizadas ou deletadas são armazenadas e atualizadas em um arquivo.csv, permitindo um acesso rápido e de fácil para consulta.
         Isso elimina a necessidade de rastrear informações dispersas e complexas em diferentes sistemas ou documentos físicos.
